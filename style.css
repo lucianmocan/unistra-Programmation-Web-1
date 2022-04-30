@@ -1,8 +1,63 @@
 /*
-NOM :
-Prénom :
+NOM : Mocan
+Prénom : Lucian
 
-NOM :
-Prénom :
+NOM : Cosmo
+Prénom : Tanguy
 
 */
+
+body{
+    font-family: sans-serif;
+    background-color: aquamarine;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    font-size: 90%;
+    font-style: italic;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+#shuffle{
+    display: flex;
+    border-style: none;
+    border-radius: 5px;
+}
+
+#shuffle:hover{
+    background-color: #00ff00;
+}
+
+#puzzlearea{
+    display: flex;
+    height: 360px;
+    width: 360px;
+}
+
+.tuile{
+    display: flex;
+    border: 1px solid gray;
+    height: 88px;
+    width: 88px;
+    background-size: 88px;
+}
+
+.tuile p{
+    text-align: center;
+    font-size: 110%;
+    text-shadow: 1px 0 0 #fff,
+    -1px 0 0 #fff,
+    0 1px 0 #fff,
+    0 -1px 0 #fff,
+    1px 1px #fff,
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff;
+    /*text-shadow ajoute une ombre au texte*/
+}
