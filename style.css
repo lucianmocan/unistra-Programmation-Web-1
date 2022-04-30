@@ -9,7 +9,7 @@ Prénom : Tanguy
 
 body{
     font-family: sans-serif;
-    background-color: aquamarine;
+    background-color: cornsilk;
 }
 
 footer{
@@ -31,7 +31,8 @@ h1{
 }
 
 #shuffle:hover{
-    background-color: #00ff00;
+    color: white;
+    background-color: cornflowerblue;
 }
 
 #puzzlearea{
