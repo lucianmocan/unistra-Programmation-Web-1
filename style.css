@@ -48,8 +48,8 @@ footer{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    height: 360px;
-    width: 360px;
+    height: 364px;
+    width: 364px;
 }
 
 .tuile{
@@ -57,22 +57,23 @@ footer{
     justify-content: center;
     align-items: center;
     border: 1px solid gray;
-    height: 88px;
-    width: 88px;
-    background-size: 88px;
+    height: 89px;
+    width: 89px;
+    background-size: 90px;
 }
 
 .tuile p{
     display: flex;
     justify-content: center;
+    color: darkgrey;
     font-size: 110%;
     text-shadow: 1px 0 0 #fff,
-    -1px 0 0 #fff,
-    0 1px 0 #fff,
-    0 -1px 0 #fff,
-    1px 1px #fff,
-    -1px -1px 0 #fff,
-    1px -1px 0 #fff,
-    -1px 1px 0 #fff;
+                -1px 0 0 #fff,
+                 0 1px 0 #fff,
+                0 -1px 0 #fff,
+                 1px 1px #fff,
+             -1px -1px 0 #fff,
+              1px -1px 0 #fff,
+              -1px 1px 0 #fff;
     /*les nombres seront entourés d'une bordure blanche*/
 }
