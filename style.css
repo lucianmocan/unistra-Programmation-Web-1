@@ -1,8 +1,8 @@
 /*
-NOM : Mocan
+NOM : MOCAN
 Prénom : Lucian
 
-NOM : Cosmo
+NOM : COSMO
 Prénom : Tanguy
 
 */
@@ -12,20 +12,29 @@ body{
     background-color: cornsilk;
 }
 
-footer{
+h1{
+    text-align: center;
+}
+
+#container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.puzzledescription {
+    text-align: center;
+}
+
+footer{
+    text-align: center;
     font-size: 90%;
     font-style: italic;
 }
 
-h1{
-    display: flex;
-    justify-content: center;
-}
-
 #shuffle{
-    display: flex;
     border-style: none;
     border-radius: 5px;
 }
