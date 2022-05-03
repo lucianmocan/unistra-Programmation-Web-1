@@ -68,7 +68,7 @@ function check_and_swap(tuile,styles) {
       arrayCoord.push([i,j]);
     }
   }
-  console.table(array);
+
   var j = 0;
   for (let i = 0; i<array.length; i++){
     array2D.push([arrayCoord[i], array[i].id]);
@@ -83,10 +83,7 @@ function check_and_swap(tuile,styles) {
   for (tmp = 0; tmp<array2D.length; tmp++){
     if (array2D[tmp][1] == tuile) break;
     }
-    console.log("tVide = "+tVide);
-    console.log("tmp = " +tmp);
     var voisinDeTmp = voisinsValides(array2D[tmp][0]); // on cherche les voisins valides
-    console.table(voisinDeTmp);
 
   var tuileVide;
   var tuileEchange;
@@ -115,7 +112,6 @@ function check_and_swap(tuile,styles) {
       if (i == tmp) { newArray.push(tuileEchange) } else
       newArray.push(array[i].outerHTML);
   }
-  console.table(newArray);
   $(".tuile").remove();   
   $("#puzzlearea").append(newArray);
 }
