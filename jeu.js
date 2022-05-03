@@ -116,6 +116,31 @@ function check_and_swap(tuile,styles) {
   $("#puzzlearea").append(newArray);
 }
 
+function win(){
+  var array = $(".tuile");
+  var array2D = [];
+  var arrayCoord = [];
+
+  for (var i = 0; i<4; i++){
+    for (var j = 0; j<4; j++){
+      arrayCoord.push([i,j]);
+    }
+  }
+  console.table(array);
+  var j = 0;
+  for (let i = 0; i<array.length; i++){
+    array2D.push([arrayCoord[i], array[i].id]);
+  }
+  var win = true;
+  for (var i = 0; i<array2D.length; i++){
+    if (array2D[i][1] != i) {
+      win = false;
+      break;
+    }
+  }
+  return win;
+}
+
 $(document).ready(function(){
 
   function shuffle () {
@@ -156,6 +181,10 @@ $(document).ready(function(){
     var tuile = $(this).attr('id');
     var style = $(this).attr('style');
     check_and_swap(tuile, style);
+    if (win()){
+      $('#output').text("Gagné !");
+      $('#puzzlearea').off("click", ".tuile");
+    }
   })
 
 
