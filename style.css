@@ -48,8 +48,8 @@ footer{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    height: 364px;
-    width: 364px;
+    height: 360px;
+    width: 360px;
 }
 
 .tuile{
@@ -57,8 +57,8 @@ footer{
     justify-content: center;
     align-items: center;
     border: 1px solid gray;
-    height: 89px;
-    width: 89px;
+    height: 88px;
+    width: 88px;
     background-size: 90px;
 }
 
@@ -76,4 +76,9 @@ footer{
               1px -1px 0 #fff,
               -1px 1px 0 #fff;
     /*les nombres seront entourés d'une bordure blanche*/
+}
+
+#output {
+    font-weight: bold;
+    font-style: italic;
 }

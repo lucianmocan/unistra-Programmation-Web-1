@@ -11,6 +11,62 @@ function alea(min, max){ // [0;15[
   return Math.floor((Math.random()*(max-min))+min)
 }
 
+function ready () {
+  let use=[];
+  for(var i=0; i<16; i++){
+    var nb = i;
+    if(use.includes(nb)){
+      while(use.includes(nb)){
+        nb = alea(0,16);
+      }
+    }
+  use.push(nb);
+    if(nb!=15){
+      let newtuile = $('<div class="tuile"></div>');
+      newtuile.attr('id',nb);
+      let newtuiletext=$('<p>'+nb+'</p>');
+      newtuile.append(newtuiletext);
+      newtuile.css('background-image','url(img/'+0+nb+'.jpg)');
+      $('#puzzlearea').append(newtuile);
+    }
+    else{
+      let newtuile = $('<div class="tuile"></div>');
+      newtuile.attr('id',nb);
+      let newtuiletext=$('<p>'+nb+'</p>');
+      newtuile.append(newtuiletext);
+      $('#puzzlearea').append(newtuile);
+    }
+  }
+}
+
+
+function shuffle () {
+  let use=[];
+  for(var i=0; i<16; i++){
+    var nb = alea(0,16);
+    if(use.includes(nb)){
+      while(use.includes(nb)){
+        nb = alea(0,16);
+      }
+    }
+  use.push(nb);
+    if(nb!=15){
+      let newtuile = $('<div class="tuile"></div>');
+      newtuile.attr('id',nb);
+      let newtuiletext=$('<p>'+nb+'</p>');
+      newtuile.append(newtuiletext);
+      newtuile.css('background-image','url(img/'+0+nb+'.jpg)');
+      $('#puzzlearea').append(newtuile);
+    }
+    else{
+      let newtuile = $('<div class="tuile"></div>');
+      newtuile.attr('id',nb);
+      let newtuiletext=$('<p>'+nb+'</p>');
+      newtuile.append(newtuiletext);
+      $('#puzzlearea').append(newtuile);
+    }
+  }
+}
 
 function estDedans(coord){
   if (coord[0]>=0 && coord[0]<=3 && coord[1]>=0 && coord[1] <=3)
@@ -38,17 +94,10 @@ function voisinsValides(coordTmp){
   return bonVoisins;
 }
 
-function equalCoord(coord1, coord2){
-  if (coord1[0] == coord2[0] && coord1[1] == coord2[1])
-    return true;
-  else
-    return false;
-}
-
 function checkIfVideInVoisins(lstVoisins, cellule) {
   for (var i = 0; i<lstVoisins.length; i++){
-      let coord1V = lstVoisins[i][0]; let coord2V = lstVoisins[i][1]; console.log("("+coord1V+","+coord2V+")");
-      let coord1C = cellule[0][0]; let coord2C = cellule[0][1]; console.log("("+coord1C+","+coord2C+")");
+      let coord1V = lstVoisins[i][0]; let coord2V = lstVoisins[i][1];
+      let coord1C = cellule[0][0]; let coord2C = cellule[0][1];
       if (coord1V == coord1C && coord2V == coord2C) return true;
   }
   return false;
@@ -63,6 +112,7 @@ function check_and_swap(tuile,styles) {
   var array2D = [];
   var arrayCoord = [];
 
+  // building an array of coordinates
   for (var i = 0; i<4; i++){
     for (var j = 0; j<4; j++){
       arrayCoord.push([i,j]);
@@ -83,14 +133,15 @@ function check_and_swap(tuile,styles) {
   for (tmp = 0; tmp<array2D.length; tmp++){
     if (array2D[tmp][1] == tuile) break;
     }
-    var voisinDeTmp = voisinsValides(array2D[tmp][0]); // on cherche les voisins valides
+  
+  var voisinDeTmp = voisinsValides(array2D[tmp][0]); // on cherche les voisins valides
 
   var tuileVide;
   var tuileEchange;
   if (checkIfVideInVoisins(voisinDeTmp, array2D[tVide])){
-      saveTuileID = array[tmp].id;
-      saveTuileStyle = styles;
-      saveTuileinnerHTML = array[tmp].innerHTML;
+      var saveTuileID = array[tmp].id;
+      var saveTuileStyle = styles;
+      var saveTuileinnerHTML = array[tmp].innerHTML;
 
       array[tmp].id = array[tVide].id;
       array[tmp].style = array[tVide].style;
@@ -106,17 +157,19 @@ function check_and_swap(tuile,styles) {
       tuileVide = array[tVide].outerHTML;
       tuileEchange = array[tmp].outerHTML;
   }
+
   newArray = [];
   for (var i = 0; i<array.length; i++){
       if (i == tVide) { newArray.push(tuileVide) } else
       if (i == tmp) { newArray.push(tuileEchange) } else
       newArray.push(array[i].outerHTML);
   }
+
   $(".tuile").remove();   
   $("#puzzlearea").append(newArray);
 }
 
-function win(){
+function puzzle_solved(){
   var array = $(".tuile");
   var array2D = [];
   var arrayCoord = [];
@@ -126,7 +179,7 @@ function win(){
       arrayCoord.push([i,j]);
     }
   }
-  console.table(array);
+
   var j = 0;
   for (let i = 0; i<array.length; i++){
     array2D.push([arrayCoord[i], array[i].id]);
@@ -143,49 +196,23 @@ function win(){
 
 $(document).ready(function(){
 
-  function shuffle () {
-    let use=[];
-    for(var i=0; i<16; i++){
-      var nb = alea(0,16);
-      if(use.includes(nb)){
-        while(use.includes(nb)){
-          nb = alea(0,16);
-        }
-      }
-    use.push(nb);
-      if(nb!=15){
-        let newtuile = $('<div class="tuile"></div>');
-        newtuile.attr('id',nb);
-        let newtuiletext=$('<p>'+nb+'</p>');
-        newtuile.append(newtuiletext);
-        newtuile.css('background-image','url(img/'+0+nb+'.jpg)');
-        $('#puzzlearea').append(newtuile);
-      }
-      else{
-        let newtuile = $('<div class="tuile"></div>');
-        newtuile.attr('id',nb);
-        let newtuiletext=$('<p>'+nb+'</p>');
-        newtuile.append(newtuiletext);
-        $('#puzzlearea').append(newtuile);
-      }
-    }
-  }
-  shuffle();
+  ready();
 
   $("#shuffle").click(function(){
     $(".tuile").remove();
+    $('#output').text("");
     shuffle();
+    $("#puzzlearea").on("click", ".tuile", function(){
+      var tuile = $(this).attr('id');
+      var style = $(this).attr('style');
+      check_and_swap(tuile, style);
+      if (puzzle_solved()){
+        $('#output').text("Vous avez réussi! Bien joué!");
+        $('#puzzlearea').off("click", ".tuile");
+      }
+    })
   })
 
-  $("#puzzlearea").on("click", ".tuile", function(){
-    var tuile = $(this).attr('id');
-    var style = $(this).attr('style');
-    check_and_swap(tuile, style);
-    if (win()){
-      $('#output').text("Gagné !");
-      $('#puzzlearea').off("click", ".tuile");
-    }
-  })
 
 
 });
