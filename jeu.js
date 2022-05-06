@@ -11,7 +11,7 @@ function alea(min, max){ // [0;15[
   return Math.floor((Math.random()*(max-min))+min)
 }
 
-function ready () {
+function readyToRumble () {
   let use=[];
   for(var i=0; i<16; i++){
     var nb = i;
@@ -196,7 +196,7 @@ function puzzle_solved(){
 
 $(document).ready(function(){
 
-  ready();
+  readyToRumble();
 
   $("#shuffle").click(function(){
     $(".tuile").remove();
