@@ -8,9 +8,9 @@ Prénom : Tanguy
 -->
 <html lang="fr" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8"> -->
     <title>Puzzle</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <h1>Quelle tuile !</h1>
@@ -36,4 +36,20 @@ Prénom : Tanguy
   integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
   crossorigin="anonymous"></script>
   <script src="jeu.js"></script>
+  <script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqiFYP7_TV6xU6rOWOkCizRZzYeKzE4QM",
+      authDomain: "prog-web-1-unistra.firebaseapp.com",
+      projectId: "prog-web-1-unistra",
+      storageBucket: "prog-web-1-unistra.appspot.com",
+      messagingSenderId: "879184246173",
+      appId: "1:879184246173:web:97d98438c115e6bed4ab74"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
 </html>
